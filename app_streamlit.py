@@ -15,7 +15,7 @@ st.set_page_config(
 )
 
 # Título y descripción
-st.title("🧠 Predictor de Trastorno del Espectro Autista")
+st.title("🧠 Predictor de trastorno del espectro autista")
 st.markdown("### Aplicación de diagnóstico clínico usando IA")
 st.markdown("**Precisión del modelo: ~70%** | Basado en variables clínicas y conductuales")
 
@@ -221,9 +221,9 @@ def main():
     preprocessor, categorical_cols, numeric_cols = create_preprocessor()
     
     # Sidebar para información
-    st.sidebar.header("ℹ️ Información del Modelo")
+    st.sidebar.header("ℹ️ Información del modelo")
     st.sidebar.markdown("""
-    **Modelo:** Red Neuronal  
+    **Modelo:** Red neuronal  
     **Precisión:** ~70%  
     **Variables:** 17 características clínicas  
     **Diagnósticos:** 5 categorías
@@ -234,63 +234,63 @@ def main():
     
     modo = st.sidebar.radio(
         "Selecciona el modo:",
-        ["📋 Evaluación Clínica Completa", "🔮 Datos Simulados", "📊 Información del Modelo"]
+        ["📋 Evaluación clínica completa", "🔮 Datos simulados", "📊 Información del modelo"]
     )
     
-    if modo == "📋 Evaluación Clínica Completa":
+    if modo == "📋 Evaluación clínica completa":
         mostrar_evaluacion_clinica(interpreter, preprocessor)
-    elif modo == "🔮 Datos Simulados":
+    elif modo == "🔮 Datos simulados":
         mostrar_datos_simulados(interpreter, preprocessor)
     else:
         mostrar_informacion_modelo()
 
 def mostrar_evaluacion_clinica(interpreter, preprocessor):
-    st.header("📋 Evaluación Clínica Completa")
+    st.header("📋 Evaluación clínica completa")
     st.markdown("**Completa todos los campos para obtener un diagnóstico orientativo**")
     
     # Crear dos columnas principales
     col1, col2 = st.columns(2)
     
     with col1:
-        st.subheader("👶 Información Básica")
+        st.subheader("👶 Información básica")
         edad = st.slider("Edad (en meses)", 3, 36, 36, help="Edad del paciente en meses")
         sexo = st.selectbox("Sexo", OPCIONES_VARIABLES['Sexo'])
         
-        st.subheader("🗣️ Comunicación y Lenguaje")
-        lenguaje = st.selectbox("Nivel de Lenguaje", OPCIONES_VARIABLES['Lenguaje'])
-        comunicacion_nv = st.selectbox("Comunicación No Verbal", OPCIONES_VARIABLES['Comunicación no verbal'])
-        contacto_visual = st.selectbox("Contacto Visual", OPCIONES_VARIABLES['Contacto visual'])
-        respuesta_nombre = st.selectbox("Respuesta al Nombre", OPCIONES_VARIABLES['Respuesta al nombre'])
+        st.subheader("🗣️ Comunicación y lenguaje")
+        lenguaje = st.selectbox("Nivel de lenguaje", OPCIONES_VARIABLES['Lenguaje'])
+        comunicacion_nv = st.selectbox("Comunicación no verbal", OPCIONES_VARIABLES['Comunicación no verbal'])
+        contacto_visual = st.selectbox("Contacto visual", OPCIONES_VARIABLES['Contacto visual'])
+        respuesta_nombre = st.selectbox("Respuesta al nombre", OPCIONES_VARIABLES['Respuesta al nombre'])
         
-        st.subheader("🤝 Interacción Social")
-        interaccion_social = st.selectbox("Interacción Social", OPCIONES_VARIABLES['Interacción social'])
+        st.subheader("🤝 Interacción social")
+        interaccion_social = st.selectbox("Interacción social", OPCIONES_VARIABLES['Interacción social'])
         
-        st.subheader("🔄 Comportamientos Repetitivos")
+        st.subheader("🔄 Comportamientos repetitivos")
         estereotipias = st.selectbox("Estereotipias", OPCIONES_VARIABLES['Estereotipias'])
-        intereses_restringidos = st.selectbox("Intereses Restringidos", OPCIONES_VARIABLES['Intereses restringidos'])
+        intereses_restringidos = st.selectbox("Intereses restringidos", OPCIONES_VARIABLES['Intereses restringidos'])
     
     with col2:
-        st.subheader("😌 Regulación Emocional")
-        regulacion = st.selectbox("Regulación Emocional", OPCIONES_VARIABLES['Regulación emocional'])
+        st.subheader("😌 Regulación emocional")
+        regulacion = st.selectbox("Regulación emocional", OPCIONES_VARIABLES['Regulación emocional'])
         
         st.subheader("🏥 Comorbilidades")
         tdah = st.selectbox("TDAH", OPCIONES_VARIABLES['TDAH'])
-        discapacidad_int = st.selectbox("Discapacidad Intelectual", OPCIONES_VARIABLES['Discapacidad intelectual'])
+        discapacidad_int = st.selectbox("Discapacidad intelectual", OPCIONES_VARIABLES['Discapacidad intelectual'])
         
-        st.subheader("👂 Aspectos Sensoriales")
-        hipersensibilidad = st.selectbox("Hipersensibilidad Sensorial", OPCIONES_VARIABLES['Hipersensibilidad sensorial'])
+        st.subheader("👂 Aspectos sensoriales")
+        hipersensibilidad = st.selectbox("Hipersensibilidad sensorial", OPCIONES_VARIABLES['Hipersensibilidad sensorial'])
         
         st.subheader("💤 Hábitos")
-        sueno = st.selectbox("Trastornos del Sueño", OPCIONES_VARIABLES['Trastornos del sueño'])
-        alimentacion = st.selectbox("Alimentación Selectiva", OPCIONES_VARIABLES['Alimentación selectiva'])
+        sueno = st.selectbox("Trastornos del sueño", OPCIONES_VARIABLES['Trastornos del sueño'])
+        alimentacion = st.selectbox("Alimentación selectiva", OPCIONES_VARIABLES['Alimentación selectiva'])
         
         st.subheader("👨‍👩‍👧‍👦 Antecedentes")
-        antecedentes = st.selectbox("Antecedentes Familiares", OPCIONES_VARIABLES['Antecedentes familiares'])
+        antecedentes = st.selectbox("Antecedentes familiares", OPCIONES_VARIABLES['Antecedentes familiares'])
     
     # Botón para predecir
     st.markdown("---")
     
-    if st.button("🧠 Realizar Diagnóstico", type="primary", use_container_width=True):
+    if st.button("🧠 Realizar diagnóstico", type="primary", use_container_width=True):
         # Preparar datos del usuario
         datos_usuario = {
             'Edad (meses)': edad,
@@ -329,7 +329,7 @@ def mostrar_evaluacion_clinica(interpreter, preprocessor):
 
 def mostrar_resultados(resultado, confianza, probabilidades, puntaje_riesgo):
     st.markdown("---")
-    st.header("📊 Resultados del Diagnóstico")
+    st.header("📊 Resultados del diagnóstico")
     
     # Columnas para resultados principales
     col1, col2, col3 = st.columns(3)
@@ -344,7 +344,7 @@ def mostrar_resultados(resultado, confianza, probabilidades, puntaje_riesgo):
             st.info(f"**Diagnóstico:** {resultado}")
     
     with col2:
-        st.metric("Confianza del Modelo", f"{confianza*100:.1f}%")
+        st.metric("Confianza del modelo", f"{confianza*100:.1f}%")
     
     with col3:
         # Interpretar puntaje de riesgo (actualizado para escala /24)
@@ -364,11 +364,11 @@ def mostrar_resultados(resultado, confianza, probabilidades, puntaje_riesgo):
             riesgo_nivel = "Muy Bajo"
             riesgo_color = "🟢"
         
-        st.metric("Puntaje de Riesgo", f"{puntaje_riesgo}/24", f"{riesgo_color} {riesgo_nivel}")
+        st.metric("Puntaje de riesgo", f"{puntaje_riesgo}/24", f"{riesgo_color} {riesgo_nivel}")
     
     # Gráfico de probabilidades
     if len(probabilidades) > 0:
-        st.subheader("📈 Distribución de Probabilidades")
+        st.subheader("📈 Distribución de probabilidades")
         
         ETIQUETAS = ['Desarrollo típico', 'TEA - Nivel 1', 'TEA - Nivel 2', 'TEA - Nivel 3', 'Indeterminado']
         chart_data = {}
@@ -391,10 +391,10 @@ def mostrar_resultados(resultado, confianza, probabilidades, puntaje_riesgo):
     """)
 
 def mostrar_datos_simulados(interpreter, preprocessor):
-    st.header("🔮 Predicción con Datos Simulados")
+    st.header("🔮 Predicción con datos simulados")
     st.info("Esta opción utiliza valores predeterminados para probar el modelo")
     
-    if st.button("🎲 Generar Predicción Simulada", type="primary"):
+    if st.button("🎲 Generar predicción simulada", type="primary"):
         # Datos simulados representativos
         datos_simulados = {
             'Edad (meses)': 30,
@@ -419,7 +419,7 @@ def mostrar_datos_simulados(interpreter, preprocessor):
         datos_simulados['Puntaje riesgo'] = puntaje_riesgo
         
         # Mostrar datos simulados
-        st.subheader("📋 Datos Utilizados")
+        st.subheader("📋 Datos utilizados")
         col1, col2 = st.columns(2)
         
         items = list(datos_simulados.items())
@@ -444,13 +444,14 @@ def mostrar_datos_simulados(interpreter, preprocessor):
             st.error(f"❌ Error: {str(e)}")
             st.error("Hay un problema con el modelo o los datos.")
 
+
 def mostrar_informacion_modelo():
-    st.header("📊 Información del Modelo")
+    st.header("📊 Información del modelo")
     
     col1, col2 = st.columns(2)
     
     with col1:
-        st.subheader("🎯 Características del Modelo")
+        st.subheader("🎯 Características del modelo")
         st.markdown("""
         - **Tipo:** Red Neuronal Profunda
         - **Precisión:** ~70%
@@ -470,7 +471,7 @@ def mostrar_informacion_modelo():
         """)
     
     with col2:
-        st.subheader("📋 Variables Utilizadas")
+        st.subheader("📋 Variables utilizadas")
         st.markdown("""
         **Información Básica:**
         - Edad (meses)
