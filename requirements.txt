@@ -1,16 +1,12 @@
-# Para Streamlit (Recomendado)
+# Para Streamlit
 streamlit==1.28.0
-pandas
-numpy
-scikit-learn
+pandas==1.5.3
+numpy==1.23.5
+scikit-learn==1.1.3
 tensorflow==2.12.0
 
-# Para PyQt5 (Opcional)
+# Para PyQt5 (opcional)
 # PyQt5==5.15.9
 
-# Para Tkinter (ya incluido en Python)
-# No requiere instalación adicional
-
 # Alternativa ligera para TensorFlow
-# tflite-runtime
-
+# tflite-runtime==2.12.0
